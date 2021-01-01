@@ -4,7 +4,7 @@
 import * as React from 'react'
 
 function Greeting({initialName = ''}) {
-    console.log('rerendering')
+    console.log('re-rendering')
     // 🐨 initialize the state to the value from localStorage
     // 💰 window.localStorage.getItem('name') || initialName
     const getInitialNameValue = () => {
@@ -20,7 +20,7 @@ function Greeting({initialName = ''}) {
         // The callback should set the `name` in localStorage.
         // 💰 window.localStorage.setItem('name', name)
         window.localStorage.setItem('name', name)
-    })
+    }, [name])
 
     function handleChange(event) {
         setName(event.target.value)
