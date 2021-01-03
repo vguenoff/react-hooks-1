@@ -15,10 +15,10 @@ const useLocalStorageState = (key, defaultValue = '') => {
     return [state, setState]
 }
 
-function Greeting({initialName = ''}) {
+const Greeting = ({initialName = ''}) => {
     const [name, setName] = useLocalStorageState('name', initialName)
 
-    function handleChange(event) {
+    const handleChange = event => {
         setName(event.target.value)
     }
 
@@ -33,7 +33,7 @@ function Greeting({initialName = ''}) {
     )
 }
 
-function App() {
+const App = () => {
     return <Greeting initialName="George" />
 }
 
