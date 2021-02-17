@@ -1,7 +1,8 @@
 // useState: tic tac toe
 // http://localhost:3000/isolated/exercise/04.js
 
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
+import {useLocalStorageState} from '../utils'
 
 // eslint-disable-next-line no-unused-vars
 function calculateStatus(winner, squares, nextValue) {
@@ -50,7 +51,10 @@ function calculateWinner(squares) {
 const initialSquares = Array(9).fill(null)
 
 function Board() {
-    const [squares, setSquares] = useState(initialSquares)
+    const [squares, setSquares] = useLocalStorageState(
+        'squares',
+        initialSquares,
+    )
 
     const nextValue = calculateNextValue(squares)
     const winner = calculateWinner(squares)
